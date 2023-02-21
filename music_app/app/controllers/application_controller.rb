@@ -38,4 +38,14 @@ class ApplicationController < ActionController::Base
     #session is a cookie
     #session[:session_token] calling session on self
     #its like params, we are assigning the key :session_token and assigning it a value
+
+
+    
+    # def require_logged_in
+    #     redirect to new_session_url unless logged_in?
+    # end
+
+    # def require_logged_out
+    #     redirect to users_url if logged_in?
+    # end
 end

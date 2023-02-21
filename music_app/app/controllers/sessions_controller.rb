@@ -1,14 +1,29 @@
 class SessionsController < ApplicationController
 
+    #creates login page
     def new
+        render :new
     end
 
+    #login button
     def create
-        
+        #find_by_credentials matches the login info of the user
+        @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
+
+        if @user 
+            login(@user)
+            redirect_to user_url(@user)
+        else
+            #render login page again of sessions
+            render :new
+        end
+
+
     end
 
     def destroy
-
+        logout!
+        redirect_to new_session_url
     end
 
 end
